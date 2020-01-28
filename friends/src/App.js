@@ -1,10 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Link, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
+      <ul>
+        <li>
+          <Link to='/login' >Login</Link>
+        </li>
+      </ul>
+      <Switch>
+        <Route path='/login' />
+      </Switch>
     </div>
   );
 }
