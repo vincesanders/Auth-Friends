@@ -21,7 +21,6 @@ export default props => {
         axiosWithAuth()
             .post('/api/friends', {id: Date.now(), ...friend})
             .then(res => {
-                console.log(res);
                 props.setData(res.data);
             }).catch(err => console.log(err));
     }

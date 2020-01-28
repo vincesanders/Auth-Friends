@@ -17,7 +17,6 @@ export default () => {
             .get('api/friends')
             .then(res => {
                 setIsLoading(false);
-                console.log(res);
                 setData(res.data);
             }).catch(err => console.log(err));
     }
@@ -25,7 +24,7 @@ export default () => {
     return (
         <div>
             <AddFriendForm setData={setData} />
-            {!isLoading && data.map(friend => <FriendCard key={friend.id} data={friend} />)}
+            {!isLoading && data.map(friend => <FriendCard key={friend.id} setData={setData} data={friend} />)}
         </div>
     );
 }
