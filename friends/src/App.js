@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Link, Switch, Route } from 'react-router-dom';
-import { Login, PrivateRoute } from './components';
+import { Login, PrivateRoute, FriendsList } from './components';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         </li>
       </ul>
       <Switch>
-        <PrivateRoute exact path='/protected' />
+        <PrivateRoute exact path='/protected' component={FriendsList} />
         <Route path='/login' ><Login /></Route>
         <Route><Login /></Route>
       </Switch>
