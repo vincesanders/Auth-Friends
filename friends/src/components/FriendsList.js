@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FriendCard from './FriendCard';
+import AddFriendForm from './AddFriendForm';
 import { axiosWithAuth } from '../utils';
 
 export default () => {
@@ -23,6 +24,7 @@ export default () => {
 
     return (
         <div>
+            <AddFriendForm setData={setData} />
             {!isLoading && data.map(friend => <FriendCard key={friend.id} data={friend} />)}
         </div>
     );
