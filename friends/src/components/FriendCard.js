@@ -60,17 +60,71 @@ export default props => {
         }
     }
 
+    const displayAge = () => {
+        if (!edittingAge) {
+            return (
+                <p>
+                    Age: {props.data.age}
+                    <button onClick={() => setEdittingAge(true)}>edit</button>
+                </p>
+            );
+        } else {
+            return (
+                <div>
+                    <input type='number' name='age' value={friend.age || ''} onChange={handleChange} />
+                    <button onClick={changeAge}>Change</button>
+                </div>
+            );
+        }
+    }
+
+    const changeAge = () => {
+        setEdittingAge(false);
+        //if friend = '' don't do anything
+        if (friend.age === '') {
+
+        } else {
+            changeFriend();
+            //reset friend
+            setFriend({});
+        }
+    }
+
+    const displayEmail = () => {
+        if (!edittingEmail) {
+            return (
+                <p>
+                    email: {props.data.email}
+                    <button onClick={() => setEdittingEmail(true)}>edit</button>
+                </p>
+            );
+        } else {
+            return (
+                <div>
+                    <input type='email' name='email' value={friend.email || ''} onChange={handleChange} />
+                    <button onClick={changeEmail}>Change</button>
+                </div>
+            );
+        }
+    }
+
+    const changeEmail = () => {
+        setEdittingEmail(false);
+        //if friend = '' don't do anything
+        if (friend.email === '') {
+
+        } else {
+            changeFriend();
+            //reset friend
+            setFriend({});
+        }
+    }
+
     return (
         <div>
             {displayName()}
-            <p>
-                Age: {props.data.age}
-                <button>edit</button>
-            </p>
-            <p>
-                email: {props.data.email}
-                <button>edit</button>
-            </p>
+            {displayAge()}
+            {displayEmail()}
             <button onClick={deleteFriend}>Delete</button>
         </div>
     );
